@@ -1,0 +1,14 @@
+{% extends "layout.html" %} {% block title %} ECSA Platform {% endblock title %}
+{% block content %}
+<h1 class="text-center mt-4">Welcome to ECSA</h1>
+
+<h2>
+  {% if form.instance.pk %} Edit Post {% else %} Create Post {% endif %}
+  <form method="post" class="form">
+    {% csrf_token %} {{form.as_p}}
+    <button class="btn btn-warning" type="submit">Submit</button>
+  </form>
+  <a href="{ % url 'posts' %}">Back to Posts</a>
+</h2>
+
+{% endblock %}
